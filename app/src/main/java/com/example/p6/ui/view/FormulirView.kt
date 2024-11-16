@@ -37,12 +37,13 @@ fun FormulirView(modifier: Modifier = Modifier,
                  ){
 
     var nama by remember { mutableStateOf("") }
+    var nim by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var noHp by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var gender by remember { mutableStateOf("") }
 
-    var listdata : MutableList<String> = mutableListOf(nama, gender, alamat, noHp, email)
+    var listdata : MutableList<String> = mutableListOf(nama, gender, alamat, noHp, email, nim)
 
 
 
@@ -66,7 +67,16 @@ fun FormulirView(modifier: Modifier = Modifier,
             label = {Text("Nama")},
             placeholder = {Text("Masukkan Nama Anda")}
         )
-
+        TextField(
+            value = nim,
+            onValueChange = { nim = it },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            label = { Text("NIM") },
+            placeholder = { Text("Masukkan NIM Anda") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
         Row (
             modifier = Modifier.fillMaxWidth()) {       //mengganti variabel modifier dengan Modifier
             pilihanJK.forEach(){ selectedGender ->
