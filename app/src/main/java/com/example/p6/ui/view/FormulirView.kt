@@ -67,6 +67,7 @@ fun FormulirView(modifier: Modifier = Modifier,
             label = {Text("Nama")},
             placeholder = {Text("Masukkan Nama Anda")}
         )
+
         TextField(
             value = nim,
             onValueChange = { nim = it },
@@ -77,6 +78,7 @@ fun FormulirView(modifier: Modifier = Modifier,
             placeholder = { Text("Masukkan NIM Anda") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
+
         Row (
             modifier = Modifier.fillMaxWidth()) {       //mengganti variabel modifier dengan Modifier
             pilihanJK.forEach(){ selectedGender ->
