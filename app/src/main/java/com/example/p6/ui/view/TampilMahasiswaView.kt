@@ -8,16 +8,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.navigation.NavHostController
 import com.example.p6.model.Mahasiswa
 
 
 @Composable
 fun TampilMahasiswaView(
-    mhs: Mahasiswa
+    mhs: Mahasiswa,
+    navController: NavHostController
 ) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
 
-
+        androidx.compose.material3.Button(
+            onClick = { navController.popBackStack() }
+        ) {
+            Text("Back")
+        }
 
         TampilData(
             judul = "Nama",
@@ -44,6 +50,12 @@ fun TampilMahasiswaView(
             isinya = mhs.noHp
         )
     }
+}
+
+
+@Composable
+fun Button(onClick: Any, content: @Composable () -> Unit) {
+
 }
 
 @Composable
